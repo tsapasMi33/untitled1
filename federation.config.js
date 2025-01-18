@@ -1,9 +1,10 @@
-const { withNativeFederation, shareAll } = require('@angular-architects/native-federation/config');
+const { withNativeFederation, shareAll, share } = require('@angular-architects/native-federation/config');
 
 module.exports = withNativeFederation({
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto', transient: true }),
+    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' })
+
   },
 
   skip: [
@@ -11,12 +12,6 @@ module.exports = withNativeFederation({
     'rxjs/fetch',
     'rxjs/testing',
     'rxjs/webSocket',
-    'os',
-    'path',
-    'fs/promises',
-    'child_process',
-    'util',
-    'crypto'
     // Add further packages you don't need at runtime
   ]
 
