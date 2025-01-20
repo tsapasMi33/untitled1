@@ -3,7 +3,7 @@ const { withNativeFederation, shareAll, share } = require('@angular-architects/n
 module.exports = withNativeFederation({
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' })
+    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto', transient: true })
 
   },
 
@@ -12,6 +12,9 @@ module.exports = withNativeFederation({
     'rxjs/fetch',
     'rxjs/testing',
     'rxjs/webSocket',
+    p => p.startsWith('@aws-amplify/data-schema'),
+    p => p.startsWith('@aws-sdk'),
+    p => p.startsWith('@smithy'),
     // Add further packages you don't need at runtime
   ]
 
